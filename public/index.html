@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" class="">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/public/build/tailwind.css" />
+    <script src="/public/index.js"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+  </head>
+  <body class="bg-gray-100 dark:bg-gray-900">
+    <div class="md:grid md:grid-cols-12 m-5 md:mt-5 gap-x-4">
+      <!--<button
+        id="darkButton"
+        onclick="darkMode();"
+        class="text-white bg-slate-800 hover:text-blue-300 dark:bg-white dark:text-slate-800 dark:hover:bg-blue-300 w-full col-start-12 text-sm rounded-lg md:rounded-tl-none md:rounded-bl-none p-2"
+      >
+        حالت تیره
+      </button>-->
+      <button
+        id="darkButton"
+        onclick="darkMode();"
+        class="text-white bg-slate-800 hover:text-blue-300 dark:bg-white dark:text-slate-800 dark:hover:bg-blue-300 w-full md:w-32 md:left-0 md:absolute text-sm rounded-lg md:rounded-tl-none md:rounded-bl-none p-2"
+      >
+        حالت تیره
+      </button>
+      <h1
+        class="text-slate-800 dark:text-white my-12 font-black text-2xl flex justify-center items-center col-span-full"
+      >
+        سبد دوره های شما
+      </h1>
+
+      <!-------------- Product List -------------->
+      <div
+        x-data="{ courses:[
+        {id:1, title:'دوره حرفه ای HTML و CSS', time:'۱۰ ساعت',numberOfStudents:'+۳۰۰۰ دانشجو',numberOfEpisodes:'۱۳۰ جلسه',teacher:'صاحب محمدی',price:'۲,۲۹۸,۰۰۰'},
+        {id:2, title:'دوره حرفه ای متخصص JS', time:'۵۰ ساعت',numberOfStudents:'+۲۷۰۰ دانشجو',numberOfEpisodes:'۱۷۰ جلسه',teacher:'صاحب محمدی',price:'۶,۰۰۰,۰۰۰'},
+        {id:3, title:'دوره حرفه ای متخصص ری اکت', time:'۴۵ ساعت',numberOfStudents:'+۱۳۰۰ دانشجو',numberOfEpisodes:'۲۷۰ جلسه',teacher:'صاحب محمدی',price:'۸,۰۰۰,۰۰۰'},
+        {id:4, title:'دوره حرفه ای متخصص نکست', time:'۳۰ ساعت',numberOfStudents:'+۱۰۰۰ دانشجو',numberOfEpisodes:'۲۰۰ جلسه',teacher:'صاحب محمدی',price:'۹,۲۹۸,۰۰۰'},
+        ]}"
+        class="grid 2xl:grid-cols-2 md:col-span-8 2xl:col-span-9 gap-4"
+      >
+        <template x-for="course in courses" :key="course.id">
+          <div
+            class="rounded-2xl bg-white dark:bg-slate-800 dark:text-white shadow-lg grid grid-cols-12 p-3 sm:p-7 mb-3 gap-x-2 sm:gap-x-6"
+          >
+            <div
+              class="aspect-w-16 aspect-h-10 rounded overflow-hidden col-span-3"
+            >
+              <img class="object-cover" src="/assets/images/React.jpg" alt="" />
+            </div>
+
+            <div class="grid md:grid-cols-2 col-span-9 justify-between">
+              <span
+                x-text="course.title"
+                class="font-black text-sm md:text-base lg:text-lg mb-3 sm:mb-0"
+              ></span>
+              <div class="hidden md:flex justify-end gap-x-3">
+                <div class="w-14 h-14 rounded-2xl overflow-hidden col-span-3">
+                  <img src="/assets/images/Profile.jpg" alt="" />
+                </div>
+                <div class="flex flex-col justify-center">
+                  <span class="text-xs">مدرس دوره</span>
+                  <span x-text="course.teacher" class="font-bold"></span>
+                </div>
+              </div>
+              <div
+                class="hidden md:grid grid-cols-1 lg:grid-cols-2 justify-start items-start text-xs"
+              >
+                <div class="flex items-center gap-x-2">
+                  <img
+                    class="w-4 h-5 dark:invert"
+                    src="/assets/images/clock.svg"
+                    alt=""
+                  />
+                  <span x-text="course.time"></span>
+                </div>
+                <div class="flex items-center gap-x-2">
+                  <img
+                    class="w-4 h-5 dark:invert"
+                    src="/assets/images/clock.svg"
+                    alt=""
+                  />
+                  <span x-text="course.numberOfStudents"></span>
+                </div>
+                <div class="flex items-center gap-x-2">
+                  <img
+                    class="w-4 h-5 dark:invert"
+                    src="/assets/images/presentation.svg"
+                    alt=""
+                  />
+                  <span x-text="course.numberOfEpisodes"></span>
+                </div>
+                <div class="flex items-center text-[#f90] gap-x-2">
+                  <img class="w-4 h-4" src="/assets/images/cup.svg" alt="" />
+                  <span>چالش های هفتگی</span>
+                </div>
+              </div>
+              <div class="flex justify-start md:justify-end items-end">
+                <span
+                  x-text="course.price"
+                  class="font-bold text-lg text-blue-600"
+                ></span>
+                <span class="mr-1 text-[8px]">تومان</span>
+                <span
+                  class="w-6 h-6 mr-8 border cursor-pointer dark:bg-gray-200 dark:hover:bg-red-300 hover:bg-red-300 text-red-600 border-gray-200 rounded-full flex justify-center items-center"
+                >
+                  <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M2 4.688a.5.5 0 1 0 0 1v-1Zm12 1a.5.5 0 0 0 0-1v1Zm-10.667-.5v-.5h-.5v.5h.5Zm9.334 0h.5v-.5h-.5v.5Zm-.44 6.532.481.139-.48-.139ZM9.15 14.404l.084.493-.084-.493Zm-2.298 0 .083-.493-.083.493Zm-.105-.018-.084.493.084-.493ZM3.772 11.72l-.48.139.48-.139Zm5.482 2.666-.083-.493.083.493ZM5.228 4.16l.454.21-.454-.21Zm.65-.873-.333-.372.334.372Zm.974-.582.174.468-.174-.468Zm2.296 0 .174-.47-.174.47Zm1.624 1.455.454-.21-.454.21ZM2 5.688h12v-1H2v1Zm7.171 8.205-.105.018.167.986.105-.018-.167-.986Zm-2.237.018-.105-.018-.167.986.105.018.167-.986Zm5.233-8.723v3.43h1v-3.43h-1Zm-8.334 3.43v-3.43h-1v3.43h1Zm8.334 0a10.69 10.69 0 0 1-.42 2.963l.961.278c.304-1.053.459-2.145.459-3.242h-1ZM9.066 13.91a6.4 6.4 0 0 1-2.132 0l-.167.986c.816.137 1.65.137 2.466 0l-.167-.986Zm-2.237-.018a3.251 3.251 0 0 1-2.577-2.312l-.96.278a4.252 4.252 0 0 0 3.37 3.02l.167-.986ZM4.252 11.58a10.689 10.689 0 0 1-.419-2.964h-1c0 1.097.155 2.189.459 3.242l.96-.277Zm5.086 3.298a4.252 4.252 0 0 0 3.37-3.02l-.96-.277a3.252 3.252 0 0 1-2.577 2.31l.167.987ZM5.5 5.189c0-.28.061-.558.182-.82l-.908-.42c-.18.392-.274.813-.274 1.24h1Zm.182-.82c.121-.261.3-.503.53-.71l-.667-.744a3.19 3.19 0 0 0-.77 1.035l.907.42Zm.53-.71c.23-.205.507-.371.814-.486l-.348-.937c-.42.156-.806.386-1.133.679l.667.745Zm.814-.486C7.333 3.06 7.665 3 8 3V2c-.452 0-.902.08-1.322.236l.348.937ZM8 3c.335 0 .667.06.974.173l.348-.937A3.804 3.804 0 0 0 8 2v1Zm.974.173c.307.115.584.28.814.487l.667-.745a3.545 3.545 0 0 0-1.133-.68l-.348.938Zm.814.487c.23.206.409.448.53.71l.908-.42a3.189 3.189 0 0 0-.771-1.035l-.667.745Zm.53.71c.12.261.182.54.182.818h1c0-.426-.094-.847-.274-1.238l-.908.42ZM3.333 5.687h9.334v-1H3.333v1Z"
+                      fill="currentColor"
+                      fill-opacity=".8"
+                    />
+                    <path
+                      d="M6.667 8.5v2.667M9.333 8.5v2.667"
+                      stroke="currentColor"
+                      stroke-opacity=".8"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      <!-------------- Invoice -------------->
+      <div class="md:col-span-4 2xl:col-span-3">
+        <div
+          class="rounded-2xl bg-white dark:bg-slate-800 dark:text-white p-4 sm:p-8 shadow-lg"
+        >
+          <div class="flex justify-start items-center gap-2 mb-5">
+            <img
+              class="w-5 h-5 dark:invert"
+              src="/assets//images/invoice.svg"
+              alt=""
+            />
+            <span class="font-black text-lg">پرداخت</span>
+          </div>
+          <hr class="mb-5" />
+          <div class="flex justify-between mb-5 font-bold">
+            <span>جمع دوره ها</span>
+            <span class="text-blue-600">۲۵,۵۹۶,۰۰۰+</span>
+          </div>
+          <div class="flex justify-between mb-5 font-bold">
+            <span>تخفیف ها</span>
+            <span class="text-red-600">۴,۲۵۰,۰۰۰-</span>
+          </div>
+          <hr class="mb-5 border-dashed" />
+          <a class="flex justify-center text-sm mb-5" href="#"
+            >کد تخفیف دارم!</a
+          >
+          <button
+            class="bg-blue-500 hover:bg-blue-800 rounded-lg w-full py-3 text-white"
+          >
+            <span class="ml-2">پرداخت</span>
+
+            <span class="font-bold text-lg">۲۱,۳۴۶,۰۰۰</span>
+            <span class="text-[8px]">تومان</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
